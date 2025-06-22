@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday Love!</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to top right, #ffdde1, #ee9ca7);
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .card {
+      background: white;
+      padding: 2rem 1.5rem;
+      border-radius: 25px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      max-width: 400px;
+      width: 90%;
+      max-height: 90vh;
+      overflow-y: auto;
+      text-align: center;
+      z-index: 10;
+    }
+
+    .heart-icon {
+      width: 60px;
+      height: 60px;
+      margin: 0 auto;
+      animation: heartbeat 1.5s infinite;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.3);
+      }
+    }
+
+    .title {
+      font-size: 1.8rem;
+      color: #d6336c;
+      margin: 1rem 0 0.5rem;
+    }
+
+    .photo {
+      width: 100%;
+      max-height: 250px;
+      object-fit: cover;
+      border-radius: 15px;
+      margin: 1rem 0;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .message {
+      font-size: 1.1rem;
+      color: #444;
+      margin: 1rem 0;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .message.show {
+      opacity: 1;
+    }
+
+    button {
+      padding: 0.6rem 1.4rem;
+      font-size: 1rem;
+      background: #ff4e50;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #e60023;
+    }
+
+    .floating-hearts {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .floating-hearts svg {
+      position: absolute;
+      animation: float 8s linear infinite;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-10vh) scale(0.5);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background romantic music -->
+  <audio autoplay loop>
+    <source src="romantic-music.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- Floating animated hearts -->
+  <div class="floating-hearts">
+    <svg width="40" height="40" style="left:10%; animation-delay: 0s;" viewBox="0 0 32 29.6">
+      <path fill="#ff4e50" d="M23.6,0c-3.4,0-6.4,2.1-7.6,5.2C14.8,2.1,11.8,0,8.4,0C3.8,0,0,3.8,0,8.4c0,9.1,16,21.2,16,21.2s16-12.1,16-21.2C32,3.8,28.2,0,23.6,0z"/>
+    </svg>
+    <svg width="40" height="40" style="left:30%; animation-delay: 1s;" viewBox="0 0 32 29.6">
+      <path fill="#ff4e50" d="M23.6,0c-3.4,0-6.4,2.1-7.6,5.2C14.8,2.1,11.8,0,8.4,0C3.8,0,0,3.8,0,8.4c0,9.1,16,21.2,16,21.2s16-12.1,16-21.2C32,3.8,28.2,0,23.6,0z"/>
+    </svg>
+    <svg width="40" height="40" style="left:50%; animation-delay: 2s;" viewBox="0 0 32 29.6">
+      <path fill="#ff4e50" d="M23.6,0c-3.4,0-6.4,2.1-7.6,5.2C14.8,2.1,11.8,0,8.4,0C3.8,0,0,3.8,0,8.4c0,9.1,16,21.2,16,21.2s16-12.1,16-21.2C32,3.8,28.2,0,23.6,0z"/>
+    </svg>
+  </div>
+
+  <!-- Card Content -->
+  <div class="card">
+    <!-- Animated heart -->
+    <svg class="heart-icon" viewBox="0 0 32 29.6">
+      <path fill="#ff4e50" d="M23.6,0c-3.4,0-6.4,2.1-7.6,5.2C14.8,2.1,11.8,0,8.4,0C3.8,0,0,3.8,0,8.4c0,9.1,16,21.2,16,21.2s16-12.1,16-21.2C32,3.8,28.2,0,23.6,0z"/>
+    </svg>
+
+    <div class="title">Happy Birthday, My Love!</div>
+
+    <!-- Your photo -->
+    <img src="dani.jpg" alt="Our photo" class="photo">
+    
+    <button onclick="showMessage()">Open Card</button>
+
+    <!-- Hidden message -->
+    <p class="message" id="birthdayMessage">
+      <b>Happy Birthday Danial Tahir Khan!</b>
+      i just wish that the way you are looking in this picture , you sit in front of me and i admire you like this for hours.
+      I may not be there to hold your hand, but I’m sending you all my hugs, kisses, and endless love across the distance.💖
+      I’m counting down the days until we’re together — and until then, just know that I’m celebrating you today and forever with all my heart. 💖
+      My all prayers and good wishes for you💖<br>
+      with lots of love,<br>
+      <i>your wifey💌</i><br>
+      <I>Nida</I> 
+    </p>
+
+   
+  </div>
+
+  <script>
+    function showMessage() {
+      document.getElementById("birthdayMessage").classList.add("show");
+    }
+  </script>
+</body>
+</html>
